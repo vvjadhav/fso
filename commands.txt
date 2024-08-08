@@ -6,3 +6,13 @@ openssl x509 -in /etc/ssl/certs/example_com.crt -noout -text
 
 curl -x http://proxy_server:port -v https://target_website 2>&1 | sed -n '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/p' > target_website.crt
 
+
+
+python3 -m venv .venv ; source .venv/bin/activate
+pip install -r requirements.txt
+export SELENIUM_HUB_URL=http://10.43.1.12:4444/wd/hub
+export TARGET_BASE_URL=http://10.10.89.71/
+export BROWSER=chrome 
+export USE_PAYPAL=false
+export USE_UPS=false
+
