@@ -5,6 +5,7 @@ ls /etc/ssl/certs/ | grep example_com
 openssl x509 -in /etc/ssl/certs/example_com.crt -noout -text
 
 curl -x http://proxy_server:port -v https://target_website 2>&1 | sed -n '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/p' > target_website.crt
+kubectl create configmap zscaler-certs --from-file=ZscalerRootCA.pem --from-file=ZscalerIntermediateRootCA.pem --from-file=ZscalerIntermediateRootCA2.pem -n finance
 
 
 
